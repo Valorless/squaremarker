@@ -62,17 +62,13 @@ object API {
     }
 
     private fun registerIcons() {
-        SquaremapProvider
-            .get()
-            .iconRegistry()
-            .register(markerIconKey, ImageIO.read(URI.create(SquareMarker.instance.config.iconUrl).toURL()))
         for (marker in MarkerService.getMarkerList()) {
             if (marker.iconUrl.isNotBlank()) {
                 try {
                     SquaremapProvider
                         .get()
                         .iconRegistry()
-                        .register(Key.of("squaremarker_marker_icon_${marker.id}"), ImageIO.read(URI.create(marker.iconUrl).toURL()))
+                        .register(Key.of("${marker.iconKey}"), ImageIO.read(URI.create(marker.iconUrl).toURL()))
                 } catch (ex: Exception) {
                     SquareMarker.logger.warn(
                         "${Lang.PLAIN_PREFIX} There is an invalid url in your marker.json. Please fix \"${marker.iconUrl}\"!",
