@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     id("squaremarker.platform")
 }
@@ -17,22 +15,7 @@ dependencies {
     implementation("org.bstats", "bstats-bukkit", bstatsVersion)
 }
 
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_21
-    }
-}
-
 tasks {
-    compileJava {
-        options.encoding = Charsets.UTF_8.name()
-        options.release = 21
-    }
-
     jar {
         archiveClassifier = "not-shadowed"
     }

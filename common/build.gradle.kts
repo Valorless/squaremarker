@@ -19,7 +19,6 @@ dependencies {
     api("org.incendo", "cloud-minecraft-extras") {
         isTransitive = false
     }
-    api("org.incendo", "cloud-kotlin-extensions")
     compileOnly("com.google.code.gson", "gson", gsonVersion)
     compileOnly("net.kyori", "adventure-text-minimessage", adventureVersion)
     compileOnly("net.kyori", "adventure-text-logger-slf4j", adventureVersion)
